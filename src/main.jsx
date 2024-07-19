@@ -4,6 +4,7 @@ import App from './App.jsx'
 import GlobalStyle from './style/GlobalStyle.js'
 import styled from 'styled-components'
 import SplashPage from './pages/SplashPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
 
 const Container = styled.div`
   max-width: 430px;
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle/>
       <Container>
-        <SplashPage/>
+        <LoginPage/>
       </Container>
   </React.StrictMode>,
 )
