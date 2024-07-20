@@ -5,6 +5,7 @@ import GlobalStyle from './style/GlobalStyle.js'
 import styled from 'styled-components'
 import SplashPage from './pages/SplashPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
+import SignupPage from './pages/SignupPage.jsx'
 
 const Container = styled.div`
   max-width: 430px;
@@ -21,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle/>
       <Container>
-        <LoginPage/>
+        <SignupPage/>
       </Container>
   </React.StrictMode>,
 )

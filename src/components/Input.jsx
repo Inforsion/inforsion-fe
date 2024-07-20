@@ -11,6 +11,9 @@ const InputForm = styled.input`
     border: 1px solid lightgray;
     padding-left: 20px;
     font-size: 16px;
+    &:focus {
+        border: 1px solid #006FFD;
+    }
 `
 
 
