@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Whitelogo from '../assets/image/whitelogo.png'
+import Whitelogo from '../assets/image/Whitelogo.png'
 
 const Background = styled.div`
     height: 100vh;
@@ -29,7 +29,7 @@ const Logo = styled.div`
     position: absolute;
     bottom: 30px;
     right: 70px;
-    width: 100px; /* Adjust size as needed */
+    width: 100px;
     height: auto;
     `
 

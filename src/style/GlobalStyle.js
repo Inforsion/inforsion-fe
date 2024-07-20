@@ -4,8 +4,8 @@ import reset from 'styled-reset';
 const GlobalStyle = createGlobalStyle`
 
     @font-face {
-        font-family: "Inter", sans-serif;
-        src: local('Inter');
+        font-family: "Pretendard", sans-serif;
+        src: local('Pretendard');
         font-weight: 400;
         font-style: normal;
         font-variation-settings: "slnt" -5;
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         border: 0;
         font-size: 20px;
-        font-family: 'Inter';
+        font-family: "Pretendard";
         vertical-align: baseline;
 
     }
