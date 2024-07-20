@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "../components/Input";
+import InputButton from "../components/InputButton";
 
 const Container = styled.div`
     display: flex;
@@ -32,18 +33,6 @@ const ItemText = styled.div`
     font-weight: 500;
 `
 
-const SignUpButton = styled.button`
-    margin: auto;
-    margin-top: 30px;
-    width: 86%;
-    height: 55px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #006FFD;
-`
-
 function SignupPage(){
     return(
         <>
@@ -57,7 +46,7 @@ function SignupPage(){
             <ItemText>비밀번호</ItemText>
             <Input label="비밀번호" name="password" placeholder="비밀번호"/>
             <Input label="비밀번호확인" name="passwordcheck" placeholder="비밀번호 확인"/>
-            <SignUpButton>Sign Up</SignUpButton>
+            <InputButton text="Sign up"/>
         </Container>
         </>
     );

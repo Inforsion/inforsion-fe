@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Bluelogo from "../assets/image/Bluelogo.png"
 import Input from "../components/Input";
+import InputButton from "../components/InputButton";
 
 const Container = styled.div`
     display: flex;
@@ -40,17 +41,6 @@ const LostPW = styled.div`
     cursor: pointer;
 `
 
-const LoginButton = styled.button`
-    margin: auto;
-    margin-top: 30px;
-    width: 86%;
-    height: 55px;
-    border-radius: 15px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #006FFD;
-`
 const JoinContainer = styled.div`
     display: flex; 
     flex-direction: row;
@@ -82,7 +72,7 @@ function LoginPage(){
             <Input label="이메일" name="email" placeholder="아이디"/>
             <Input label="비밀번호" name="password" placeholder="비밀번호"/>  
             <LostPW>비밀번호를 잃어버리셨나요?</LostPW>    
-            <LoginButton>Login</LoginButton> 
+            <InputButton text="Login"/> 
             <JoinContainer>
                 <JoinText>회원이 아니신가요?</JoinText>
                 <JoinLink>회원가입하기</JoinLink>
