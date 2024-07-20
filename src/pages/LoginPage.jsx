@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Bluelogo from "../assets/image/Bluelogo.png"
+import Input from "../components/Input";
 
 const Container = styled.div`
     display: flex;
@@ -28,18 +29,6 @@ const Login = styled.div`
     font-size: 18px;
     font-weight: 700;
 
-`
-
-const Input = styled.input`
-    width: 86%;
-    height: 55px;
-    margin: auto;
-    margin-top: 15px;
-    outline: none;
-    border-radius: 15px;
-    border: 1px solid lightgray;
-    padding-left: 20px;
-    font-size: 16px;
 `
 
 const LostPW = styled.div`
@@ -91,7 +80,7 @@ function LoginPage(){
             <Context>더욱 쉽고 간편한 가게관리</Context>
             <Login>로그인</Login>
             <Input label="이메일" name="email" placeholder="아이디"/>
-            <Input label="비밀번호" name="password" placeholder="비밀번호"/>   
+            <Input label="비밀번호" name="password" placeholder="비밀번호"/>  
             <LostPW>비밀번호를 잃어버리셨나요?</LostPW>    
             <LoginButton>Login</LoginButton> 
             <JoinContainer>
