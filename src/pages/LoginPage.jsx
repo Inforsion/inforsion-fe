@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Bluelogo from "../assets/image/Bluelogo.png"
 import Input from "../components/Input";
 import InputButton from "../components/InputButton";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
@@ -72,10 +73,10 @@ function LoginPage(){
             <Input label="이메일" name="email" placeholder="아이디"/>
             <Input label="비밀번호" name="password" placeholder="비밀번호"/>  
             <LostPW>비밀번호를 잃어버리셨나요?</LostPW>    
-            <InputButton text="Login"/> 
+            <Link to="/main"><InputButton text="Login"/></Link> 
             <JoinContainer>
                 <JoinText>회원이 아니신가요?</JoinText>
-                <JoinLink>회원가입하기</JoinLink>
+                <Link to="/signup"><JoinLink>회원가입하기</JoinLink></Link>
             </JoinContainer>
         </Container>
         </>

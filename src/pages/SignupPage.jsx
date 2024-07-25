@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Input from "../components/Input";
 import InputButton from "../components/InputButton";
+import { Link } from "react-router-dom";
+
 
 const Container = styled.div`
     display: flex;
@@ -46,7 +48,7 @@ function SignupPage(){
             <ItemText>비밀번호</ItemText>
             <Input label="비밀번호" name="password" placeholder="비밀번호"/>
             <Input label="비밀번호확인" name="passwordcheck" placeholder="비밀번호 확인"/>
-            <InputButton text="Sign up"/>
+            <Link to="/main"><InputButton text="Sign up"/></Link>
         </Container>
         </>
     );

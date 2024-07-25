@@ -1,10 +1,19 @@
 import './App.css'
 import styled from 'styled-components';
-
+import { Routes, Route, Link } from 'react-router-dom';
+import SplashPage from './pages/SplashPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import MainPage from './pages/MainPage';
 function App() {
   return(
     <>
-    <div>안녕하세요 hi 1234</div>
+      <Routes>
+        <Route path='/' element={<SplashPage/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/signup' element={<SignupPage/>}/>
+        <Route path='/main' element={<MainPage/>}/>
+      </Routes>
     </>
   );
 }

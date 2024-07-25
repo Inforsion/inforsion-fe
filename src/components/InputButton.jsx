@@ -4,6 +4,7 @@ import styled from "styled-components";
 const InputBtn = styled.button`
     margin: auto;
     margin-top: 30px;
+    margin-left: 7%;
     width: 86%;
     height: 55px;
     border-radius: 15px;
