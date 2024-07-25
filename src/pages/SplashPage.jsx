@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import Whitelogo from '../assets/image/Whitelogo.png'
+import Whitelogo from '../assets/image/Whitelogo.png';
+import { useNavigate } from "react-router-dom";
 
 const Background = styled.div`
     height: 100vh;
@@ -34,6 +35,17 @@ const Logo = styled.div`
     `
 
 function SplashPage(){
+
+    const navigate = useNavigate();
+
+    useEffect(()=> {
+        const time = setTimeout(()=>{
+            navigate('/login');
+        }, 3000);
+
+        return ()=> clearTimeout(time);
+    }, [navigate]);
+
     return(
         <>
         <Background>
