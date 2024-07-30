@@ -36,10 +36,4 @@ export const SalesData = [
     pv: 3800,
     amt: 2500,
     },
-    {
-    name: 'Sun',
-    uv: 34,
-    pv: 4300,
-    amt: 2100,
-    },
 ];
