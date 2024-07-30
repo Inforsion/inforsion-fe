@@ -7,7 +7,7 @@ import MainSalesChart from "../components/MainSalesChart";
 import Sales from "../assets/image/sales.svg?react";
 
 const MainContainer = styled.div`
-  padding : 3%;
+  padding : 5%;
 
 `
 
@@ -31,18 +31,18 @@ const ChartText = styled.div`
 function MainPage() {
     return (
     <>
-      <MainContainer>
         <MainHeader/>
-        <MainSalesValue/>
-        <SalesContainer>
-          <SalesHeader>
-            <Sales/>
-            <ChartText>매출</ChartText>
-          </SalesHeader>
-          <MainSalesChart/>
-        </SalesContainer>
-        <Navigation/>
+        <MainContainer>
+          <MainSalesValue/>
+          <SalesContainer>
+            <SalesHeader>
+              <Sales/>
+              <ChartText>매출</ChartText>
+            </SalesHeader>
+            <MainSalesChart/>
+          </SalesContainer>
         </MainContainer>
+        <Navigation/>
     </>
   );
 }
