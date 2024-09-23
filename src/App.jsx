@@ -5,6 +5,10 @@ import SplashPage from './pages/SplashPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import MainPage from './pages/MainPage';
+import SalesPage from './pages/SalesPage';
+import GoodsPage from './pages/GoodsPage';
+import OperatePage from './pages/OperatePage';
+
 function App() {
   return(
     <>
@@ -13,6 +17,9 @@ function App() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/main' element={<MainPage/>}/>
+        <Route path='/sales' element={<SalesPage/>}/>
+        <Route path='/goods' element={<GoodsPage/>}/>
+        <Route path='/operate' element={<OperatePage/>}/>
       </Routes>
     </>
   );
