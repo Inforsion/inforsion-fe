@@ -1,6 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Cell } from 'recharts';
-import {SalesData} from "../SalesData";
+import {SalesData} from "../../SalesData";
 
 
 const CustomBar = ({ fill, x, y, width, height, DMax }) => {
