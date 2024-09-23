@@ -28,6 +28,18 @@ const ChartText = styled.div`
   margin: 5px;
 `
 
+const ShotBtn = styled.button`
+  width: 160px;
+  height: 25px;
+  border-radius: 15px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #2897FF;
+  margin-top: 30px;
+  margin-left: 29%;
+`
+
 function MainPage() {
     return (
     <>
@@ -41,7 +53,7 @@ function MainPage() {
             </SalesHeader>
             <MainSalesChart/>
           </SalesContainer>
-          <div>button</div>
+          <ShotBtn>영수증 촬영하러 가기 {">"} </ShotBtn>
         </MainContainer>
         <Navigation/>
     </>
