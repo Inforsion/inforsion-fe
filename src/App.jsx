@@ -8,6 +8,7 @@ import MainPage from './pages/MainPage';
 import SalesPage from './pages/SalesPage';
 import GoodsPage from './pages/GoodsPage';
 import OperatePage from './pages/OperatePage';
+import IngredientsPage from './pages/IngredientsPage';
 
 function App() {
   return(
@@ -20,6 +21,7 @@ function App() {
         <Route path='/sales' element={<SalesPage/>}/>
         <Route path='/goods' element={<GoodsPage/>}/>
         <Route path='/operate' element={<OperatePage/>}/>
+        <Route path='/ingredients' element={<IngredientsPage/>}/>
       </Routes>
     </>
   );
