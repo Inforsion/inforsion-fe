@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import MainHeader from "../components/MainHeader";
 import Navigation from "../components/Navigation";
-import MainSalesValue from "../components/MainSalesValue";
-import MainSalesChart from "../components/MainSalesChart";
+import MainSalesValue from "../components/Main/MainSalesValue";
+import MainSalesChart from "../components/Main/MainSalesChart";
 import Sales from "../assets/image/sales.svg?react";
 
 const MainContainer = styled.div`
@@ -41,6 +41,7 @@ function MainPage() {
             </SalesHeader>
             <MainSalesChart/>
           </SalesContainer>
+          <div>button</div>
         </MainContainer>
         <Navigation/>
     </>
