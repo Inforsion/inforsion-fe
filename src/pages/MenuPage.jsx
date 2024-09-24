@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MainHeader from "../components/MainHeader";
 import InputButton from "../components/InputButton";
 import MenuList from "../components/List/MenuList";
+import camera from '../assets/image/camera.svg?react';
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -10,6 +11,8 @@ const Container = styled.div`
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  margin-bottom: 100px;
+
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -41,6 +44,9 @@ const Box_One = styled.div`
 `;
 
 const Image = styled.div`
+display: flex;
+    justify-content: center;
+    align-items: center; 
   width: 100px;
   height: 100px;
   border-radius: 100%;
@@ -56,6 +62,7 @@ const InputContainer = styled.div`
 `;
 
 const Context = styled.div`
+  align-content: center;
   font-size: 12px;
   font-weight: 700;
   margin-left: 20px;
@@ -86,7 +93,37 @@ const Box_two = styled.div`
   border-radius: 9px;
   margin: auto;
   margin-top: 30px;
+  overflow: auto;
 `;
+
+const ListName = styled.div`
+    padding: 20px;
+    color: #343434;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+`
+
+const HeaderContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-left: 8px;
+`
+
+const ListHeader = styled.div`
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;
+    color: #343434;
+    padding-left: 12px;
+    padding-right: 28px;
+
+`
+
+function Icons({ icon: Icon }) {
+    return <Icon width={24} height={20} fill="none" />;
+  }
 
 export default function MenuPage() {
   return (
@@ -97,8 +134,8 @@ export default function MenuPage() {
           <MenuBtn>인포전 홈 {">"}</MenuBtn>
         </StyledLink>
         <Box_One>
-          <Image />
-          <InputContainer>
+        <Image><Icons icon={camera}/></Image>
+        <InputContainer>
             <Context>상품명</Context>
             <Input placeholder="상품이름을 입력해주세요" />
           </InputContainer>
@@ -113,6 +150,15 @@ export default function MenuPage() {
         </Box_One>
         <InputButton text="저장" />
         <Box_two>
+        <ListName>메뉴 목록</ListName>
+        <HeaderContainer>
+            <ListHeader>NO.</ListHeader>
+            <ListHeader>사진</ListHeader>
+            <ListHeader>상품명</ListHeader>
+            <ListHeader>가격</ListHeader>
+        </HeaderContainer>
+          <MenuList />
+          <MenuList />
           <MenuList />
           <MenuList />
           <MenuList />

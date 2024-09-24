@@ -6,7 +6,7 @@ const ListContainer = styled.div`
     height: 80px;
     border-Bottom: 1px solid #D3D3D3;
     margin: 10px auto;
-    padding: 4px;
+    padding: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
