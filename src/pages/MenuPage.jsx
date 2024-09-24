@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components';
 import MainHeader from '../components/MainHeader';
 import InputButton from '../components/InputButton';
@@ -31,11 +31,10 @@ const MenuBtn = styled.button`
 
 const Box_One = styled.div`
     display: flex;
-    justify-content: center;
     align-content: center;
     flex-direction: column;
     width: 86%;
-    height: 360px;
+    height: 300px;
     border: 1px solid #BDBDBD;
     border-radius: 9px;
     margin: auto;
@@ -48,7 +47,7 @@ const Image = styled.div`
     border-radius: 100%;
     background-color: #F2F2F2;
     margin-left: 36%;
-    margin-top: 30px;
+    margin-top: 20px;
 
 `
 const InputContainer = styled.div`
@@ -72,52 +71,41 @@ const Input = styled.input`
     margin-right: 20%;
 `
 
-const Box_two = styled.div`
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    width: 86%;
-    height: 560px;
-    border: 1px solid #BDBDBD;
-    border-radius: 9px;
-    margin: auto;
-    margin-top: 30px;
-
+const IngredientBtn = styled.button`
+    width: 65px;
+    height: 16px;
+    margin-right: 44%;
+    border-radius: 5px;
+    font-size: 8px;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: #2897FF;
 `
 
 
-export default function IngredientsPage() {
+export default function MenuPage() {
   return (
     <>
-      <MainHeader />
-      <Container>
-        <StyledLink to ="/menu"><MenuBtn>메뉴등록하러가기 {">"}</MenuBtn></StyledLink>
+    <MainHeader/>
+    <Container>
+        <StyledLink to ="/main"><MenuBtn>인포전 홈 {">"}</MenuBtn></StyledLink>
         <Box_One>
             <Image/>
             <InputContainer>
-                <Context>재료명</Context>
+                <Context>상품명</Context>
                 <Input placeholder='상품이름을 입력해주세요'/>
             </InputContainer>
             <InputContainer>
-                <Context>재고 가격</Context>
+                <Context>판매 가격</Context>
                 <Input placeholder='가격을 입력해주세요'/>
             </InputContainer>
             <InputContainer>
                 <Context>1개당 재고용량</Context>
-                <Input placeholder='재고를 입력해주세요'/>
-            </InputContainer>
-            <InputContainer>
-                <Context>재고 수</Context>
-                <Input placeholder='재고를 입력해주세요'/>
+                <IngredientBtn>재료 추가하기</IngredientBtn>
             </InputContainer>
         </Box_One>
       <InputButton text="저장"/>
-        <Box_two>
-
-        </Box_two>
-      </Container>
-
-
+    </Container>
     </>
-  );
+  )
 }
