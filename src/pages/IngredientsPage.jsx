@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MainHeader from '../components/MainHeader';
 import InputButton from '../components/InputButton';
+import IngredientsList from '../components/List/IngredientsList';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
@@ -73,9 +74,6 @@ const Input = styled.input`
 `
 
 const Box_two = styled.div`
-    display: flex;
-    justify-content: center;
-    align-content: center;
     width: 86%;
     height: 560px;
     border: 1px solid #BDBDBD;
@@ -113,6 +111,12 @@ export default function IngredientsPage() {
         </Box_One>
       <InputButton text="저장"/>
         <Box_two>
+            <IngredientsList/>
+            <IngredientsList/>
+            <IngredientsList/>
+            <IngredientsList/>
+            <IngredientsList/>
+            <IngredientsList/>
 
         </Box_two>
       </Container>
