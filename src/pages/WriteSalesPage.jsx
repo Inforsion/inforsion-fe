@@ -1,11 +1,7 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components';
 import MainHeader from '../components/MainHeader';
 import Navigation from '../components/Navigation';
-import MainSalesChart from '../components/Main/MainSalesChart';
-import Sales from "../assets/image/sales.svg?react";
-import { Link } from 'react-router-dom';
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -62,60 +58,35 @@ const ValueText = styled.div`
   color: #343434;
 `
 
-const BtnContainer = styled.div`
+const InputContainer = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  margin: 20px;
-  padding-top: 20px;
-`
-
-const Btn = styled.button`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 180px;
-  height: 88px;
-  border-radius: 9px;
-  font-size: 8px;
-  font-weight: 400;
-  color: #ffffff;
-  background-color: #2897ff;
-  padding: 10px;
+  margin-top: 30px;
+  padding: 6px;
 `;
 
-const BtnContext = styled.p`
-  font-size: 12px;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 4px;
-`
-const BtnP = styled.p`
-  text-align: left;
-  font-size: 12px;
-  font-weight: 300;
-  color: #ffffff;
-`
-
-const SalesHeader = styled.div`
-  display: flex ;
-  flex-direction: row;
-  margin-top: 30px;
-  padding-bottom: 30px;
+const Context = styled.div`
+  align-content: center;
+  font-size: 14px;
+  font-weight: 700;
   margin-left: 20px;
-  ;
-`
+`;
 
-const ChartText = styled.div`
-  font-size: 15px;
-  font-weight: 600;
-  margin: 5px;
-`
+const Input = styled.p`
+  text-align: right;
+  width: 150px;
+  height: 15px;
+  font-size: 14px;
+  border: none;
+  margin-right: 20px;
+`;
 
-export default function SalesPage() {
+export default function WriteSalesPage() {
   return (
     <Container>
-      <MainHeader />
-      <Box>
+        <MainHeader/>
+        <Box>
         <ValueContainer1>
           <SalesText>현 매출</SalesText>
           <ValueContainer>
@@ -123,7 +94,7 @@ export default function SalesPage() {
             <ValueText>원</ValueText>
           </ValueContainer>
         </ValueContainer1>
-        <div style={{padding: 32}}></div>        
+        <div style={{padding: 20}}></div>        
         <ValueContainer1>
           <SalesText>순이익</SalesText>
           <ValueContainer>
@@ -140,31 +111,49 @@ export default function SalesPage() {
         </ValueContainer1>
       </Box>
 
-      <BtnContainer>
-        <Link to ="/writesales">
-          <Btn>
-            <BtnContext>매출 작성하러 가기 {">"}</BtnContext>
-            <BtnP>
-              오늘의 매출을 어디서든 기록하고 <br />
-              수정할 수 있습니다.
-            </BtnP>
-          </Btn>
-        </Link>
-        <Btn>
-          <BtnContext>영수증 촬영하러 가기 {">"}</BtnContext>
-          <BtnP>
-            영수증 촬영으로 간편한 매출/재고 <br />
-            관리를 할 수 있습니다.
-          </BtnP>
-        </Btn>
-      </BtnContainer>
-
-      <SalesHeader>
-        <Sales />
-        <ChartText>매출 그래프</ChartText>
-      </SalesHeader>
-      <MainSalesChart />
-      <Navigation />
+      <InputContainer>
+        <Context>판매 가격</Context>
+        <Input>289,980원</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>카드</Context>
+        <Input>282,000원</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>현금</Context>
+        <Input>5000원</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>기타</Context>
+        <Input>입력하기</Input>
+      </InputContainer>
+      <div style={{margin: 20}}></div>        
+      <InputContainer>
+        <Context>원가</Context>
+        <Input>186,912원</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>재료비</Context>
+        <Input>186,912원</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>고정비</Context>
+        <Input>입력하기</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>기타</Context>
+        <Input>입력하기</Input>
+      </InputContainer>
+      <div style={{margin: 20}}></div>        
+      <InputContainer>
+        <Context>세금</Context>
+        <Input>29,980원</Input>
+      </InputContainer>
+      <InputContainer>
+        <Context>부가세</Context>
+        <Input>29,980원</Input>
+      </InputContainer>
+        <Navigation/>
     </Container>
-  );
+  )
 }

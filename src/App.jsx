@@ -10,6 +10,7 @@ import GoodsPage from './pages/GoodsPage';
 import OperatePage from './pages/OperatePage';
 import IngredientsPage from './pages/IngredientsPage';
 import MenuPage from './pages/MenuPage';
+import WriteSalesPage from './pages/WriteSalesPage';
 
 function App() {
   return(
@@ -20,6 +21,7 @@ function App() {
         <Route path='/signup' element={<SignupPage/>}/>
         <Route path='/main' element={<MainPage/>}/>
         <Route path='/sales' element={<SalesPage/>}/>
+        <Route path='/writesales' element={<WriteSalesPage/>}/>
         <Route path='/goods' element={<GoodsPage/>}/>
         <Route path='/operate' element={<OperatePage/>}/>
         <Route path='/ingredients' element={<IngredientsPage/>}/>
