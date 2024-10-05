@@ -1,32 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import MainHeader from "../components/MainHeader";
 import Navigation from "../components/Navigation";
 import MainSalesValue from "../components/Main/MainSalesValue";
 import MainSalesChart from "../components/Main/MainSalesChart";
+import ChartButton from "../components/Main/ChartButton";
 import Sales from "../assets/image/sales.svg?react";
+import { salesData } from "../SalesData";
 
 const MainContainer = styled.div`
-  padding : 5%;
-
-`
+  padding: 5%;
+`;
 
 const SalesContainer = styled.div`
   margin-top: 10px;
-  ;
-`
+`;
 const SalesHeader = styled.div`
-  display: flex ;
+  display: flex;
   flex-direction: row;
   margin-top: 40px;
-  padding-bottom: 30px;
-  ;
-`
+`;
 const ChartText = styled.div`
   font-size: 15px;
   font-weight: 600;
   margin: 5px;
-`
+`;
 
 const ShotBtn = styled.button`
   width: 160px;
@@ -35,27 +33,30 @@ const ShotBtn = styled.button`
   font-size: 10px;
   font-weight: 400;
   color: #ffffff;
-  background-color: #2897FF;
+  background-color: #2897ff;
   margin-top: 30px;
   margin-left: 29%;
-`
+`;
 
 function MainPage() {
-    return (
+  const [activeTab, setActiveTab] = useState("day");
+
+  return (
     <>
-        <MainHeader/>
-        <MainContainer>
-          <MainSalesValue/>
-          <SalesContainer>
-            <SalesHeader>
-              <Sales/>
-              <ChartText>매출</ChartText>
-            </SalesHeader>
-            <MainSalesChart/>
-          </SalesContainer>
-          <ShotBtn>영수증 촬영하러 가기 {">"} </ShotBtn>
-        </MainContainer>
-        <Navigation/>
+      <MainHeader />
+      <MainContainer>
+        <MainSalesValue />
+        <SalesContainer>
+          <SalesHeader>
+            <Sales />
+            <ChartText>매출</ChartText>
+          </SalesHeader>
+          <ChartButton activeTab={activeTab} setActiveTab={setActiveTab} />
+          <MainSalesChart data={salesData[activeTab]} />
+        </SalesContainer>
+        <ShotBtn>영수증 촬영하러 가기 {">"} </ShotBtn>
+      </MainContainer>
+      <Navigation />
     </>
   );
 }

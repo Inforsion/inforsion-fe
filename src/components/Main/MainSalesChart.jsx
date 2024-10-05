@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Cell } from 'recharts';
-import { SalesData } from "../../SalesData";
 
-const MainSalesChart = () => {
+const MainSalesChart = ({data}) => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const handleBarClick = (index) => {
@@ -11,9 +10,9 @@ const MainSalesChart = () => {
 
     return (
         <ResponsiveContainer width="100%" height={260}>
-            <BarChart width={150} height={20} data={SalesData} barCategoryGap="12%">
+            <BarChart width={150} height={20} data={data} barCategoryGap="12%">
                 <Bar dataKey="uv" radius={[10, 10, 10, 10]} >
-                    {SalesData.map((entry, index) => (
+                    {data.map((entry, index) => (
                         <Cell
                             key={`cell-${index}`}
                             fill={index === activeIndex ? '#006FFD' : '#E3E9F5'} 

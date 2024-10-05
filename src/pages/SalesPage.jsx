@@ -1,10 +1,13 @@
-import React from 'react';
+import {React, useState} from 'react';
 import styled from 'styled-components';
 import MainHeader from '../components/MainHeader';
 import Navigation from '../components/Navigation';
 import MainSalesChart from '../components/Main/MainSalesChart';
 import Sales from "../assets/image/sales.svg?react";
+import ChartButton from '../components/Main/ChartButton';
 import { Link } from 'react-router-dom';
+import { salesData } from "../SalesData";
+
 
 const Container = styled.div`
   display: flex;
@@ -12,7 +15,7 @@ const Container = styled.div`
   align-content: center;
   flex-direction: column;
   margin-bottom: 100px;
-
+  padding: 5%;
 `;
 
 const Box = styled.div`
@@ -20,7 +23,7 @@ const Box = styled.div`
   align-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 90%;
+  width: 100%;
   height: 168px;
   border: 1px solid #bdbdbd;
   border-radius: 9px;
@@ -112,9 +115,12 @@ const ChartText = styled.div`
 `
 
 export default function SalesPage() {
+  const [activeTab, setActiveTab] = useState("day");
+
   return (
+    <>      
+    <MainHeader />
     <Container>
-      <MainHeader />
       <Box>
         <ValueContainer1>
           <SalesText>현 매출</SalesText>
@@ -163,8 +169,11 @@ export default function SalesPage() {
         <Sales />
         <ChartText>매출 그래프</ChartText>
       </SalesHeader>
-      <MainSalesChart />
+      <ChartButton activeTab={activeTab} setActiveTab={setActiveTab} />
+          <MainSalesChart data={salesData[activeTab]} />
       <Navigation />
     </Container>
+    </>
+
   );
 }
