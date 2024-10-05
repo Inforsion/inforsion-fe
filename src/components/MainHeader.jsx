@@ -34,10 +34,10 @@ const SidebarWrapper = styled.div`
     position: absolute;
     left: ${(props) => (props.isOpen ? '0' : '-300px')};
     top: 0;
-    height: 100%;
+    height: 80%;
     width: 400px;
     transition: left 0.3s ease;
-    z-index: 1; /* 사이드바가 헤더 아래에 있도록 설정 */
+    z-index: 1;
 `
 
 
