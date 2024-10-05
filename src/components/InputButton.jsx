@@ -11,7 +11,7 @@ const InputBtn = styled.button`
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
-    background-color: #006FFD;
+    background-color: #2897FF;
 `
 
 function InputButton({text}){
