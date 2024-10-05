@@ -7,13 +7,14 @@ import Operate from "../assets/image/IconB/operateB.svg?react";
 import Menu from "../assets/image/IconB/menuB.svg?react";
 import Logout from "../assets/image/IconB/logoutB.svg?react";
 import SearchIcon from "../assets/image/search.svg?react";
-import InputButton from "../components/InputButton";
+import InputButton from "./InputButton";
 
 const Container = styled.div`
   background-color: white;
   width: 60%;
-  height: 56%;
   box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+  margin-top: 60px;
+  overflow: auto;
 `;
 
 const SearchWrapper = styled.div`
@@ -53,7 +54,7 @@ export default function Sidebar() {
       <SidebarList icon={Goods} text="재고" />
       <SidebarList icon={Operate} text="운영" />
       <SidebarList icon={Menu} text="우리 가게 메뉴" />
-      <div style={{ margin: '40px' }}></div>
+      <div style={{ margin: '20%' }}></div>
       <InputButton text="메뉴등록하러가기 >"/>
       <SidebarList icon={Logout} text="Logout" />
     </Container>
