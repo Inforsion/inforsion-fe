@@ -36,6 +36,8 @@ const DateSales = styled.div`
 `
 
 function MainSalesValue(){
+  const today = new Date();
+  const TodayDate = `${today.getFullYear()}. ${today.getMonth() + 1}. ${today.getDate()} 매출현황 입니다.`;
   return(
     <>
       <SalesText>사장님의 매출</SalesText>
@@ -43,7 +45,7 @@ function MainSalesValue(){
           <SalesValue>289980</SalesValue>
           <ValueText>원</ValueText>
         </ValueContainer>
-        <DateSales>2025.05.12 매출현황 입니다.</DateSales>
+        <DateSales>{TodayDate}</DateSales>
     </>
   );
 }
