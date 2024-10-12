@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "../components/Input";
 import InputButton from "../components/InputButton";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 const Container = styled.div`
@@ -42,11 +41,14 @@ function SignupPage() {
   const [passwordcheck, setPasswordcheck] = useState("");
 
   const onSubmitHandler = async () => {
-    const response = await axios.post("http://52.79.131.0:8090/auth/signup", {
-      username: username,
-      email: email,
-      password: password,
-    });
+    const response = await axios.post(
+      `${import.meta.env.VITE_APP_API_URL}/auth/signup`,
+      {
+        username: username,
+        email: email,
+        password: password,
+      }
+    );
     console.log(response);
   };
 
