@@ -68,23 +68,30 @@ function CreateStorePage() {
   const navigate = useNavigate();
 
   const onSubmitHandler = async () => {
-    const token = localStorage.getItem("token");
-    console.log(token);
-    console.log(storeName, location);
-    const res = await axios.post(
-      `${import.meta.env.VITE_APP_API_URL}/store/create`,
-      {
-        name: storeName,
-        location: location,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      console.log(storeName, location);
+
+      const res = await axios.post(
+        `${import.meta.env.VITE_APP_API_URL}/store/create`,
+        {
+          name: storeName,
+          location: location,
         },
-      }
-    );
-    localStorage.setItem("store", res.data.storeInfo);
-    console.log(localStorage.getItem("store"));
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res);
+      localStorage.setItem("store", JSON.stringify(res.data.storeInfo.id));
+      console.log(localStorage.getItem("store"));
+    } catch (error) {
+      console.error("가게 생성 중 오류", error);
+      alert("가게 생성에 실패했습니다.");
+    }
   };
 
   return (
