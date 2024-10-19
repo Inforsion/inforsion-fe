@@ -81,7 +81,7 @@ function LoginPage() {
       console.log(localStorage.getItem("token"));
 
       if (response.data.accessToken) {
-        navigate("/main");
+        navigate("/createstore");
       }
     } catch {
       console.log("로그인 오류");
