@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Bluelogo from "../assets/image/Bluelogo.png";
 import Input from "../components/Input";
@@ -32,40 +32,56 @@ const Context = styled.div`
   font-weight: 700;
 `;
 
-const LostPW = styled.div`
-  padding-top: 18px;
-  padding-left: 8%;
-  font-size: 12px;
-  font-weight: 600;
-  color: #006ffd;
-  cursor: pointer;
+const StoreList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
 `;
 
-const JoinContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  margin-top: 18px;
-`;
-
-const JoinText = styled.div`
-  font-size: 14px;
-  font-weight: 400;
-  color: Darkgray;
-`;
-
-const JoinLink = styled.div`
-  padding-left: 5px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #006ffd;
-  cursor: pointer;
+const StoreItem = styled.li`
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #f5f5f5;
+  border-radius: 5px;
 `;
 
 function CreateStorePage() {
   const [storeName, setStoreName] = useState("");
   const [location, setLocation] = useState("");
+  const [storeList, setStoreList] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
+
+  const loadStores = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.get(
+        `${import.meta.env.VITE_APP_API_URL}/store/list`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setStoreList(res.data.storeList);
+      setLoading(false);
+
+      console.log("가게 목록 저장 성공");
+      console.log(res.data);
+    } catch (error) {
+      console.error("가게 목록 가져오기 실패");
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadStores();
+  }, []);
+
+  useEffect(() => {
+    console.log("storeList 업데이트됨:", storeList);
+  }, [storeList]);
 
   const onSubmitHandler = async () => {
     try {
@@ -88,6 +104,7 @@ function CreateStorePage() {
       console.log(res);
       localStorage.setItem("store", JSON.stringify(res.data.storeInfo.id));
       console.log(localStorage.getItem("store"));
+      loadStores();
     } catch (error) {
       console.error("가게 생성 중 오류", error);
       alert("가게 생성에 실패했습니다.");
@@ -113,6 +130,22 @@ function CreateStorePage() {
           onChange={(e) => setLocation(e.target.value)}
         />
         <InputButton text="가게 생성 하기" onClick={onSubmitHandler} />
+
+        {loading ? (
+          <p>가게 목록을 불러오는 중입니다...</p>
+        ) : (
+          <StoreList>
+            {storeList.length > 0 ? (
+              storeList.map((store) => (
+                <StoreItem key={store.id}>
+                  {store.name} - {store.location}
+                </StoreItem>
+              ))
+            ) : (
+              <p>등록된 가게가 없습니다.</p>
+            )}
+          </StoreList>
+        )}
       </Container>
     </>
   );
