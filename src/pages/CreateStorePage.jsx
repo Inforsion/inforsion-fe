@@ -35,14 +35,32 @@ const Context = styled.div`
 const StoreList = styled.ul`
   list-style-type: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 30px;
 `;
 
 const StoreItem = styled.li`
+  display: flex;
+  justify-content: space-between;
   padding: 10px;
-  margin: 5px 0;
-  background-color: #f5f5f5;
-  border-radius: 5px;
+  margin: auto;
+  margin-left: 7%;
+  margin-bottom: 10px;
+  width: 86%;
+  height: 48px;
+  border-radius: 15px;
+  border: 1px solid #d9d9d9;
+  font-size: 14px;
+  font-weight: 500;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+`;
+
+const DeleteButton = styled.button`
+  background: none;
+  border: none;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
 `;
 
 function CreateStorePage() {
@@ -130,7 +148,7 @@ function CreateStorePage() {
           onChange={(e) => setLocation(e.target.value)}
         />
         <InputButton text="가게 생성 하기" onClick={onSubmitHandler} />
-
+        <Context> 가게 목록</Context>
         {loading ? (
           <p>가게 목록을 불러오는 중입니다...</p>
         ) : (
@@ -139,6 +157,7 @@ function CreateStorePage() {
               storeList.map((store) => (
                 <StoreItem key={store.id}>
                   {store.name} - {store.location}
+                  <DeleteButton>X</DeleteButton>
                 </StoreItem>
               ))
             ) : (
