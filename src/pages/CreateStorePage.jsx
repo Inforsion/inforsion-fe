@@ -129,6 +129,27 @@ function CreateStorePage() {
     }
   };
 
+  const deleteStore = async (storeId) => {
+    try {
+      const token = localStorage.getItem("token");
+      const res = await axios.delete(
+        `${import.meta.env.VITE_APP_API_URL}/store`,
+        {
+          data: { storeId: storeId },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("가게 삭제 성공:", res.data);
+      setStoreList((prevStores) =>
+        prevStores.filter((store) => store.id !== storeId)
+      );
+    } catch (error) {
+      console.error("가게 삭제 실패");
+    }
+  };
+
   return (
     <>
       <Container>
@@ -157,7 +178,9 @@ function CreateStorePage() {
               storeList.map((store) => (
                 <StoreItem key={store.id}>
                   {store.name} - {store.location}
-                  <DeleteButton>X</DeleteButton>
+                  <DeleteButton onClick={() => deleteStore(store.id)}>
+                    X
+                  </DeleteButton>
                 </StoreItem>
               ))
             ) : (
