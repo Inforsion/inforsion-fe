@@ -53,6 +53,7 @@ const StoreItem = styled.li`
   font-weight: 500;
   align-items: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  cursor: pointer;
 `;
 
 const DeleteButton = styled.button`
@@ -68,7 +69,6 @@ function CreateStorePage() {
   const [location, setLocation] = useState("");
   const [storeList, setStoreList] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const navigate = useNavigate();
 
   const loadStores = async () => {
@@ -129,6 +129,10 @@ function CreateStorePage() {
     }
   };
 
+  const onClickStore = (storeId) => {
+    navigate(`/main/${storeId}`);
+  };
+
   const deleteStore = async (storeId) => {
     try {
       const token = localStorage.getItem("token");
@@ -146,7 +150,7 @@ function CreateStorePage() {
         prevStores.filter((store) => store.id !== storeId)
       );
     } catch (error) {
-      console.error("가게 삭제 실패");
+      console.error("가게 삭제 실패", error);
     }
   };
 
@@ -176,7 +180,10 @@ function CreateStorePage() {
           <StoreList>
             {storeList.length > 0 ? (
               storeList.map((store) => (
-                <StoreItem key={store.id}>
+                <StoreItem
+                  key={store.id}
+                  onClick={() => onClickStore(store.id)}
+                >
                   {store.name} - {store.location}
                   <DeleteButton onClick={() => deleteStore(store.id)}>
                     X

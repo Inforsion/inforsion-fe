@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import styled from "styled-components";
 import MainHeader from "../components/MainHeader";
 import Navigation from "../components/Navigation";
@@ -40,6 +42,31 @@ const ShotBtn = styled.button`
 
 function MainPage() {
   const [activeTab, setActiveTab] = useState("day");
+  const { storeId } = useParams();
+  const [storeData, setStoreData] = useState(null);
+
+  useEffect(() => {
+    const fetchStoreData = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await axios.get(
+          `${import.meta.env.VITE_APP_API_URL}/store/${storeId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        setStoreData(res.data);
+      } catch (error) {
+        console.error("스토어 데이터를 가져오지 못했습니다", error);
+      }
+    };
+
+    fetchStoreData();
+  }, [storeId]);
+
+  if (!storeData) return <p>스토어 정보를 불러오는 중입니다...</p>;
 
   return (
     <>
