@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useStoreContext } from "../context/StoreContext";
 import axios from "axios";
 import styled from "styled-components";
 import MainHeader from "../components/MainHeader";
@@ -42,10 +43,18 @@ const ShotBtn = styled.button`
 
 function MainPage() {
   const [activeTab, setActiveTab] = useState("day");
-  const { storeId } = useParams();
+  const { storeId: paramStoreId } = useParams();
+  const { storeId, setStoreId } = useStoreContext();
   const [storeData, setStoreData] = useState(null);
 
   useEffect(() => {
+    if (paramStoreId && paramStoreId !== storeId) {
+      setStoreId(paramStoreId);
+    }
+  }, [paramStoreId, storeId, setStoreId]);
+
+  useEffect(() => {
+    if (!storeId) return;
     const fetchStoreData = async () => {
       try {
         const token = localStorage.getItem("token");
